@@ -1,5 +1,5 @@
 let spotLight = document.querySelector('.spotLight');
-let spotLightSize = `transparent 2em, rgba(0,0,0,0.9) 200px`
+let spotLightSize = `transparent 0.1em, rgba(0,0,0,0.95) 200px`
 
 window.addEventListener(`DOMContentLoaded`, () => {
         window.addEventListener(`mousemove`, e => updateSpotLight(e));
