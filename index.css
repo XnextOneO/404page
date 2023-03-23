@@ -1,15 +1,16 @@
 body {
-    background: url("astronaut_ring_neon_156673_1920x1080.jpg");
+
     background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
 .btn {
-    background-color: gray;
+    background-color: white;
     border: none;
-    color: white;
+    color: black;
     padding: 16px 32px;
     text-align: center;
     font-size: 16px;

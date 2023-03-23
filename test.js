@@ -12,3 +12,20 @@ window.addEventListener(`DOMContentLoaded`, () => {
         }
     }
 );
+
+
+// Создаем массив изображений
+let backgrounds = [
+    "astronaut_ring_neon_156673_1920x1080.jpg",
+    "space.jpg",
+    "cat.jpg",
+    "fatCat.jpg"
+
+];
+
+// Выбираем случайное изображение из массива
+let randomIndex = Math.floor(Math.random() * backgrounds.length);
+let randomBackground = backgrounds[randomIndex];
+
+// Устанавливаем случайное изображение как фон
+document.body.style.backgroundImage = "url(" + randomBackground + ")";
