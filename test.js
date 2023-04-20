@@ -1,15 +1,22 @@
 let spotLight = document.querySelector('.spotLight');
-let spotLightSize = `transparent 0.1em, rgba(0,0,0,0.95) 200px`
+
 
 window.addEventListener(`DOMContentLoaded`, () => {
         window.addEventListener(`mousemove`, e => updateSpotLight(e));
 
         function updateSpotLight(e) {
-            spotLight.style.backgroundImage = `radial-gradient(circle at
-            ${e.pageX / window.innerWidth * 100}% 
-            ${e.pageY / window.innerHeight * 100}% ,${spotLightSize}
-            )`;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const distanceX = Math.abs(e.pageX - centerX);
+            const distanceY = Math.abs(e.pageY - centerY);
+            const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+            const maxSize = 500;
+            const minSize = 200;
+            const size = maxSize - (distance / Math.max(centerX, centerY)) * (maxSize - minSize);
+            const spotLightSize = `transparent 0.1em, rgba(0,0,0,0.99) ${size}px`;
+            spotLight.style.backgroundImage = `radial-gradient(circle at ${e.pageX / window.innerWidth * 100}% ${e.pageY / window.innerHeight * 100}%, ${spotLightSize})`;
         }
+
     }
 );
 
