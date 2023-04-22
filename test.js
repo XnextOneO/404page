@@ -1,6 +1,5 @@
 let spotLight = document.querySelector('.spotLight');
 
-
 window.addEventListener(`DOMContentLoaded`, () => {
         window.addEventListener(`mousemove`, e => updateSpotLight(e));
 
@@ -20,27 +19,29 @@ window.addEventListener(`DOMContentLoaded`, () => {
     }
 );
 
-
 function getRandomBackgrounds() {
     // Создаем массив ссылок на изображения
-    const backgrounds = ["https://img.freepik.com/free-photo/lavender-field-at-sunset-near-valensole_268835-3910.jpg",];
+    const backgrounds = ["https://img.freepik.com/free-photo/lavender-field-at-sunset-near-valensole_268835-3910.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHrdmnNXjVtKa7z-yKFuxLx4bX4M9GfvSktQRIp4uqwQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmJPmlP7H_zGNDA7--C3f065drXkFOx1Quasb-kSWLmQ&s"];
 
     // Выбираем случайные ссылки на изображения из массива
     const randomBackgrounds = [];
     for (let i = 0; i < 3; i++) { // выбираем 3 случайных фона
         const randomIndex = Math.floor(Math.random() * backgrounds.length);
         const randomBackground = backgrounds[randomIndex];
-        randomBackgrounds.push(randomBackground);
+        randomBackgrounds.push(`url(${randomBackground})`);
         // удаляем выбранный элемент из массива backgrounds
         backgrounds.splice(randomIndex, 1);
     }
 
-    // Возвращаем массив ссылок на случайные изображения
-    return randomBackgrounds;
+    // Возвращаем строку, содержащую ссылки на случайные изображения в формате background-image CSS
+    return randomBackgrounds.join(", ");
 }
 
-// Получаем массив ссылок на случайные изображения
-const backgrounds = getRandomBackgrounds();
+// Получаем строку со ссылками на случайные изображения в формате background-image CSS
+const backgroundImageString = getRandomBackgrounds();
 
 // Устанавливаем случайные изображения как фон
-document.body.style.backgroundImage = `url(${backgrounds[0]}), url(${backgrounds[1]}), url(${backgrounds[2]})`;
+document.body.style.backgroundImage = backgroundImageString;
+
