@@ -44,4 +44,3 @@ const backgroundImageString = getRandomBackgrounds();
 
 // Устанавливаем случайные изображения как фон
 document.body.style.backgroundImage = backgroundImageString;
-
